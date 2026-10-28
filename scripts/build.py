@@ -175,4 +175,7 @@ urlmap = json.dumps(mapping, ensure_ascii=False)
 for name in ['navigation.js', 'migration.css']:
     shutil.copyfile(ROOT / name, PUBLIC / name)
 (ROOT / 'docs/localization.json').write_text(json.dumps({'source_pages': len(list((SOURCE/'pages').rglob('*.html'))), 'localized_assets': len(mapping), 'literal_module_imports_missing': [], 'assets': mapping}, indent=2))
+# Support GitHub Pages' existing "Deploy from branch / main / root" setting
+# as well as the Actions artifact. Both paths must publish the same website.
+shutil.copytree(PUBLIC, ROOT, dirs_exist_ok=True)
 print('Build ready:', PUBLIC, 'assets:', len(mapping), flush=True)

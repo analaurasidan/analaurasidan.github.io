@@ -29,6 +29,7 @@ El build normal no usa internet ni instala paquetes. `--download` solo se utiliz
 - `source/manifest.json`: origen y huellas SHA-256.
 - `scripts/build.py`: genera la versión con recursos locales y adapta el acceso al CMS para un servidor estático.
 - `public/`: sitio que se debe publicar.
+- `index.html`, `assets/` y las carpetas de páginas en la raíz: copia generada del mismo sitio para la configuración existente de GitHub Pages (main / raíz). El build mantiene ambas salidas iguales.
 - `navigation.js`: conserva la navegación entre páginas y corrige rutas relativas en servidores que agregan `/` al final.
 - `migration.css`: estilos adicionales de foco y movimiento reducido.
 - `docs/`: informes de migración y verificación.
@@ -43,9 +44,9 @@ Esta primera versión conserva el código generado por Framer (React y sus módu
 
 ## Publicación en GitHub Pages
 
-Repositorio sugerido: `analaurasidan.github.io`, bajo la cuenta `analaurasidan`. Ese nombre permite servir desde la raíz sin cambiar todas las rutas.
+Repositorio: https://github.com/analaurasidan/analaurasidan.github.io. Ese nombre permite servir desde la raíz sin cambiar todas las rutas.
 
-El flujo de `.github/workflows/pages.yml` publica únicamente `public/`. En GitHub hay que configurar Settings → Pages → Source: GitHub Actions. Crear el repositorio y autorizarlo en el conector sigue pendiente.
+El repositorio y su autorización en el conector ya están creados. La configuración existente de GitHub Pages publica la rama `main` desde la raíz. Por compatibilidad, el build también genera el sitio en esa ubicación. El flujo de `.github/workflows/pages.yml` publica `public/`: ambas salidas contienen las mismas páginas y recursos. No es necesario cambiar los permisos del conector ni la configuración de Pages para mostrar la Home.
 
 El dominio está comprado en Donweb. Todavía no se cambió ningún registro DNS ni se canceló Framer. Primero revisar la URL de prueba y después conectar el dominio y verificar HTTPS. La configuración `CNAME` se agrega al realizar ese cambio, para que la prueba no redirija antes de tiempo al sitio actual.
 

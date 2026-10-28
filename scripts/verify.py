@@ -25,6 +25,11 @@ class Refs(HTMLParser):
             resources.update(v.strip().split()[0] for v in a['srcset'].split(',') if v.strip())
 
 pages = sorted(PUBLIC.rglob('*.html'))
+for generated in PUBLIC.rglob('*'):
+    if generated.is_file():
+        root_copy = ROOT / generated.relative_to(PUBLIC)
+        if not root_copy.is_file() or root_copy.read_bytes() != generated.read_bytes():
+            errors.append('Root publication differs from public/: ' + str(generated.relative_to(PUBLIC)))
 for page in pages:
     text = page.read_text()
     Refs().feed(text)
