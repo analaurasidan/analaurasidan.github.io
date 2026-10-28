@@ -1,0 +1,7 @@
+/* Small accessibility additions; original exported styles define the design. */
+:root { --portfolio-focus: #2563eb; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--portfolio-focus); outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

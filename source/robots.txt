@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://analaurasidan.com.ar/sitemap.xml
