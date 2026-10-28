@@ -25,13 +25,31 @@
 
 Esto es una comprobación local, no una auditoría completa de accesibilidad ni garantía de identidad visual píxel a píxel. Falta verificar la versión publicada y la reproducción de ambos videos en todos los contextos pertinentes; se verificó la carga del video visible en About. Spotify seguirá necesitando internet y su servicio externo.
 
-## Pendiente de GitHub
+## GitHub y publicación
 
-Cuenta autenticada por el conector: `analaurasidan`. La instalación permite repositorios seleccionados y actualmente el único repositorio accesible es `job-match`. El conector expone escritura sobre repositorios autorizados, pero no creación de repositorios. No está instalado el CLI `gh`.
+Cuenta autenticada por el conector: `analaurasidan`. Ana Laura creó el repositorio público `analaurasidan.github.io` y lo autorizó en la instalación del conector. Se transfirieron los 477 contenidos únicos correspondientes a los 889 archivos iniciales, verificando sus SHA de Git; no hubo errores de transferencia.
 
-Se intentó abrir `https://github.com/new` en el navegador de esta sesión; GitHub pidió iniciar sesión. No se creó ni se publicó un repositorio remoto.
+Repositorio: https://github.com/analaurasidan/analaurasidan.github.io
 
-Siguiente paso: crear el repositorio público `analaurasidan.github.io` (para usar Pages gratis y rutas desde la raíz) y seleccionarlo en la instalación existente del conector: https://github.com/settings/installations/176300908. Una vez autorizado se podrá subir el proyecto. Si la interfaz ofrece más permisos que ese repositorio específico, revisar esa ampliación antes de aceptarla.
+Web publicada y verificada: https://analaurasidan.github.io/
+
+Commit de la primera subida completa: `7cc1274e6bd02a8b10a27690e32c807eaade0d07`.
+Commit de compatibilidad con publicación desde la raíz: `28fad5e39e884a8c64ee32e8858cdbd2fe1bfbce`.
+
+GitHub Pages ya estaba habilitado con publicación desde `main` / raíz. Eso hizo que la primera publicación mostrara el README aunque el flujo de Actions publicaba correctamente `public/`. Se corrigió generando también las páginas y recursos en la raíz del repositorio. Ambas salidas se comparan byte a byte con `scripts/verify.py`.
+
+Se conservó la configuración de Pages y se resolvió mediante el conector, sin controlar Chrome. La carpeta local quedó conectada a `origin` y su historial se integró con el remoto conservando ambos historiales.
+
+Verificación online realizada:
+
+- Inicio muestra el portfolio; sus tres imágenes visibles cargaron desde `analaurasidan.github.io`.
+- Spotify muestra el reproductor Workland y sus controles. No se inició reproducción de audio durante la prueba.
+- Projects, CashFly, Filmo acá, Busuu, InnFlow, About, Contact y 404 abren con contenido. No se observaron imágenes completadas con error ni imágenes apuntando a `framerusercontent.com` en las comprobaciones realizadas.
+- La sesión online no registró errores ni advertencias durante esas pruebas.
+- A 390 px el menú abre y permite navegar a Contact; no se observó desbordamiento horizontal y el correo apunta a `mailto:analaurasidan@gmail.com`.
+- Los procesos de publicación de la primera subida terminaron correctamente. La Home real se verificó después del despliegue de la corrección de raíz.
+
+Siguiente etapa: revisión de la web publicada y conexión del dominio comprado en Donweb. Todavía no se canceló Framer.
 
 ## Dominio y Framer
 
