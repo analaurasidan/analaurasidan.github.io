@@ -169,6 +169,8 @@ for src in sorted((SOURCE / 'pages').rglob('*.html')):
 shutil.copyfile(PUBLIC / '404/index.html', PUBLIC / '404.html')
 for name in ['sitemap.xml', 'robots.txt']:
     shutil.copyfile(SOURCE / name, PUBLIC / name)
+# GitHub Pages reads this when it serves the site from the main branch.
+(PUBLIC / 'CNAME').write_text('analaurasidan.com.ar\n')
 (PUBLIC / '.nojekyll').touch()
 urlmap = json.dumps(mapping, ensure_ascii=False)
 (PUBLIC / 'runtime-url-map.js').write_text('/* Localize URLs decoded from the published CMS binary without changing its byte offsets. */\n(()=>{const map='+urlmap+';const keys=Object.keys(map).sort((a,b)=>b.length-a.length);globalThis.__portfolioLocalize=text=>{for(const key of keys)text=text.split(key).join(map[key]);return text;};})();\n')

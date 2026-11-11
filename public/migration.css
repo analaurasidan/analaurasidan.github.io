@@ -1,5 +1,8 @@
 /* Small accessibility additions; original exported styles define the design. */
 :root { --portfolio-focus: #2563eb; }
+/* Framer's exported desktop canvas has a fixed width. Its hosted runtime
+   centers that canvas; static hosting needs the same outer alignment. */
+.framer-UCvHq.framer-72rtr7 { margin-inline: auto; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--portfolio-focus); outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
