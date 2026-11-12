@@ -3,6 +3,9 @@
 /* Framer's exported desktop canvas has a fixed width. Its hosted runtime
    centers that canvas; static hosting needs the same outer alignment. */
 .framer-UCvHq.framer-72rtr7 { margin-inline: auto; }
+/* The published Home component renders its outer frame with display: contents.
+   Center the fixed-width hero itself inside the responsive content frame. */
+.framer-UCvHq .framer-m6sp60 { margin-inline: auto; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--portfolio-focus); outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
