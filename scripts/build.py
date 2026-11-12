@@ -158,7 +158,7 @@ for src in sorted((SOURCE / 'pages').rglob('*.html')):
     text = text.replace('mailto:%20analaurasidan@gmail.com', 'mailto:analaurasidan@gmail.com')
     if rel.as_posix() == 'contact/index.html':
         text = text.replace('Ana Lauras Sidan/contact', 'Ana Laura Sidan — Contact').replace('Porfolio', 'Portfolio')
-    text = text.replace('</head>', '<link rel="stylesheet" href="/migration.css"><script src="/runtime-url-map.js"></script></head>')
+    text = text.replace('</head>', '<link rel="stylesheet" href="/migration.css?v=20261112-hero-center"><script src="/runtime-url-map.js"></script></head>')
     if args.verify_local:
         policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob:; connect-src 'self'; frame-src https://open.spotify.com; worker-src 'self' blob:"
         text = text.replace('<head>', '<head><meta http-equiv="Content-Security-Policy" content="' + policy + '">', 1)
