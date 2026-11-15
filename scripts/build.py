@@ -156,6 +156,10 @@ for src in sorted((SOURCE / 'pages').rglob('*.html')):
     text = re.sub(r'href="((?:\.{1,2}/)[^"]*)"', relative_link, text)
     text = text.replace('href="https://analaurasidan.com.ar/"', 'href="/"')
     text = text.replace('mailto:%20analaurasidan@gmail.com', 'mailto:analaurasidan@gmail.com')
+    if rel.as_posix() == 'ux-ui/index.html':
+        # The former Home now lives under /ux-ui/; the landing page owns the root.
+        text = text.replace('<link rel="canonical" href="https://analaurasidan.com.ar/">', '<link rel="canonical" href="https://analaurasidan.com.ar/ux-ui/">')
+        text = text.replace('<meta property="og:url" content="https://analaurasidan.com.ar/">', '<meta property="og:url" content="https://analaurasidan.com.ar/ux-ui/">')
     if rel.as_posix() == 'contact/index.html':
         text = text.replace('Ana Lauras Sidan/contact', 'Ana Laura Sidan — Contact').replace('Porfolio', 'Portfolio')
     text = text.replace('</head>', '<link rel="stylesheet" href="/migration.css?v=20261112-hero-center"><script src="/runtime-url-map.js"></script></head>')
@@ -164,6 +168,11 @@ for src in sorted((SOURCE / 'pages').rglob('*.html')):
         text = text.replace('<head>', '<head><meta http-equiv="Content-Security-Policy" content="' + policy + '">', 1)
     text = text.replace('</body>', '<script src="/navigation.js" defer></script></body>')
     dest.write_text(text)
+
+# Landing page and Branding section: hand-written pages with their own assets.
+LANDING = SOURCE / 'landing' / 'assets'
+if LANDING.is_dir():
+    shutil.copytree(LANDING, PUBLIC / 'landing', dirs_exist_ok=True)
 
 # GitHub Pages requires a top-level 404 document; keep the original /404 route.
 shutil.copyfile(PUBLIC / '404/index.html', PUBLIC / '404.html')
@@ -177,6 +186,9 @@ urlmap = json.dumps(mapping, ensure_ascii=False)
 for name in ['navigation.js', 'migration.css']:
     shutil.copyfile(ROOT / name, PUBLIC / name)
 (ROOT / 'docs/localization.json').write_text(json.dumps({'source_pages': len(list((SOURCE/'pages').rglob('*.html'))), 'localized_assets': len(mapping), 'literal_module_imports_missing': [], 'assets': mapping}, indent=2))
+from languages import build_languages
+build_languages(PUBLIC)
+
 # Support GitHub Pages' existing "Deploy from branch / main / root" setting
 # as well as the Actions artifact. Both paths must publish the same website.
 shutil.copytree(PUBLIC, ROOT, dirs_exist_ok=True)

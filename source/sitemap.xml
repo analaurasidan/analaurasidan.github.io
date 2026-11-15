@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://analaurasidan.com.ar/</loc></url>
+<url><loc>https://analaurasidan.com.ar/ux-ui/</loc></url>
+<url><loc>https://analaurasidan.com.ar/branding/</loc></url>
 <url><loc>https://analaurasidan.com.ar/about</loc></url>
 <url><loc>https://analaurasidan.com.ar/projects</loc></url>
 <url><loc>https://analaurasidan.com.ar/contact</loc></url>
@@ -9,4 +11,7 @@
 <url><loc>https://analaurasidan.com.ar/projects/filmoaca-locationfinderapp</loc></url>
 <url><loc>https://analaurasidan.com.ar/projects/busuu-redesign</loc></url>
 <url><loc>https://analaurasidan.com.ar/projects/innflow</loc></url>
+<url><loc>https://analaurasidan.com.ar/branding/emergencias/</loc></url>
+<url><loc>https://analaurasidan.com.ar/branding/incode/</loc></url>
+<url><loc>https://analaurasidan.com.ar/branding/gcba/</loc></url>
 </urlset>

@@ -2,3 +2,14 @@
 __pycache__/
 *.pyc
 docs/screenshots/
+source/landing/refs/
+source/landing/*.png
+source/landing/_unused/
+
+# Keep supplied originals and design exports local; publish selected web assets.
+source/branding/**/originales/
+docs/branding-kit/**/*.png
+docs/branding-kit/**/*.jpg
+docs/branding-kit/**/*.webp
+docs/branding-kit/**/*.zip
+docs/.preview-public.tgz

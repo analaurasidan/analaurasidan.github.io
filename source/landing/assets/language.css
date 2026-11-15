@@ -1,0 +1,42 @@
+.language-picker { position: relative; display: inline-block; flex: 0 0 auto; color: #111; font: 500 14px/1.4 Manrope, sans-serif; letter-spacing: normal; text-align: left; z-index: 100; }
+.language-picker summary { list-style: none; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid #e3e3e3; border-radius: 64px; background: #fff; cursor: pointer; white-space: nowrap; }
+.language-picker summary::-webkit-details-marker { display: none; }
+.language-picker summary svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.language-picker summary .language-chevron { width: 12px; height: 12px; }
+.language-picker[open] summary { background: #f0f0f0; }
+.language-options { position: absolute; top: calc(100% + 8px); right: 0; width: 184px; padding: 8px; display: grid; gap: 6px; box-sizing: border-box; border: 1px solid #e3e3e3; border-radius: 16px; background: #fff; box-shadow: 0 12px 30px #00000012; }
+.language-options a { display: flex !important; align-items: center; justify-content: space-between; min-height: 44px; width: 100%; box-sizing: border-box; margin: 0; padding: 10px 12px; border-radius: 10px; color: #111 !important; text-decoration: none; font: inherit; }
+.language-options a:hover, .language-options a[aria-current] { background: #f0f0f0; }
+.language-picker summary:focus-visible, .language-options a:focus-visible { outline: 2px solid #111; outline-offset: 3px; }
+header.nav > .language-picker { justify-self: end; }
+.portfolio-mobile-menu { display: none; }
+@media (max-width: 767px) {
+  header.nav { grid-template-columns: 1fr auto; grid-template-rows: auto; }
+  header.nav > .nav__links, header.nav > .language-picker { display: none; }
+  .portfolio-mobile-menu { display: block; position: relative; z-index: 110; font: 500 15px/1.5 Manrope, sans-serif; }
+  .portfolio-mobile-menu > summary { list-style: none; cursor: pointer; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #e3e3e3; border-radius: 50%; }
+  .portfolio-mobile-menu > summary::-webkit-details-marker { display: none; }
+  .portfolio-mobile-menu > summary svg { width: 20px; height: 20px; fill: none; stroke: #111; stroke-width: 1.5; }
+  .portfolio-mobile-menu__panel { position: absolute; right: 0; top: 52px; background: white; border: 1px solid #e3e3e3; border-radius: 20px; width: 250px; padding: 16px; box-shadow: 0 12px 30px #00000012; }
+  .portfolio-mobile-menu__panel > a { display: flex; align-items: center; min-height: 44px; color: #111; text-decoration: none; }
+  .portfolio-mobile-menu__panel > .language-picker { display: block; border-top: 1px solid #e3e3e3; margin-top: 8px; padding-top: 12px; }
+  .portfolio-mobile-menu__panel .language-picker summary { justify-content: flex-start; padding: 0; border: 0; }
+  .portfolio-mobile-menu__panel .language-options { position: static; box-shadow: none; border: 0; width: auto; padding: 0; }
+  nav[aria-label="Main navigation"] .language-picker { margin: 4px; }
+}
+
+nav[aria-label="Main navigation"] { overflow: visible !important; }
+@media (max-width: 767px) {
+  nav[aria-label="Main navigation"] { display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; gap: 12px !important; }
+  nav[aria-label="Main navigation"] > div:first-child { flex: 1 !important; min-width: 0 !important; width: auto !important; }
+  nav[aria-label="Main navigation"] .framer-1b2wqnd-container { display: none !important; }
+  nav[aria-label="Main navigation"] > .language-picker { display: none !important; }
+  nav[aria-label="Main navigation"] > .portfolio-mobile-menu { flex: 0 0 44px !important; }
+}
+
+.portfolio-nav-shell { overflow: visible !important; position: relative !important; z-index: 120 !important; }
+
+@media (min-width: 768px) {
+  nav[aria-label="Main navigation"] > .language-picker { order: 20; margin-left: 20px; }
+  nav[aria-label="Main navigation"] > div:has(a[href*="linkedin.com"]) { display: none !important; }
+}

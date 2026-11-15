@@ -39,7 +39,7 @@ for page in pages:
 
 for url in resources:
     url = html.unescape(url)
-    if url.startswith('/assets/') and not (PUBLIC / up.urlsplit(url).path.lstrip('/')).is_file():
+    if url.startswith(('/assets/', '/landing/')) and not (PUBLIC / up.urlsplit(url).path.lstrip('/')).is_file():
         errors.append('Missing asset: ' + url)
 
 for link in links:
